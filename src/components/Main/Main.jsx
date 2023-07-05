@@ -52,9 +52,10 @@ const Main = () => {
 
   return (
     <main>
-      <form onSubmit={handleSubmit}>
+      <h2>Añadir nueva lista:</h2>
+      <form onSubmit={handleSubmit} className="form_container">
         <input type="text" name="listName" />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="+" />
       </form>
       <Lists lists={lists}/>
     </main>

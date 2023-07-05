@@ -50,18 +50,18 @@ const Lists = (props) => {
   }
 
   return (
-    <div>
+    <div className="lists_container">
       {props.lists.map((list) => (
-        <div key={list.id}>
-          <p>{list.listName}</p>
+        <div key={list.id} className="list_card">
+          <h3>{list.listName}</h3>
           <form onSubmit={(event) => handleSubmit(event, list.id)}>
             <input type="text" name="taskName" />
-            <input type="submit" value="Submit" />
+            <input type="submit" value="+" />
           </form>
           {tasks
             .filter((task) => task.listId === list.id)
             .map((task) => (
-              <p key={task.id}>{task.taskName}</p>
+              <p key={task.id}>- {task.taskName}</p>
             ))}
         </div>
       ))}
