@@ -21,7 +21,7 @@
     .list_card{
         @include column-center;
         width: 400px;
-        height: 300px;
+        min-height: 300px;
         background-color: $grey-blue;
         color: $leemons;
         border-radius: 20px;
