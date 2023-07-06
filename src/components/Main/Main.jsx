@@ -6,7 +6,7 @@ const Main = () => {
 
   useEffect(() => {
     fetchData();
-  }, []); // Run the effect only once on component mount
+  }, []); 
 
   async function fetchData() {
     try {
@@ -27,27 +27,31 @@ const Main = () => {
     const newList = event.target.listName.value;
     console.log(newList);
 
-    try {
-      const response = await fetch("http://localhost:3000/list", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ listName: newList }),
-      });
-
-      if (response.ok) {
-        // Handle the successful response
-        console.log("List created successfully!");
-        fetchData(); // Fetch updated list data
-      } else {
-        // Handle the error response
-        console.error("Failed to create list");
+    if (event.target.listName.value !== '') {
+      try {
+        const response = await fetch("http://localhost:3000/list", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ listName: newList }),
+        });
+  
+        if (response.ok) {
+          console.log("List created successfully!");
+          fetchData(); 
+          event.target.listName.value = ''
+        } else {
+          console.error("Failed to create list");
+        }
+      } catch (error) {
+        console.error("Network error", error);
       }
-    } catch (error) {
-      // Handle network errors
-      console.error("Network error", error);
+    } else{
+      alert('Por favor escriba un nombre para la lista');
     }
+
+    
   }
 
   return (

@@ -36,15 +36,15 @@ const Lists = (props) => {
         body: JSON.stringify({ taskName: newTask, listId }),
       });
       if (response.ok) {
-        // Handle the successful response
+       
         console.log("Task created successfully!");
-        fetchData(); // Fetch updated list data
+        fetchData(); 
       } else {
-        // Handle the error response
+        
         console.error("Failed to create task");
       }
     } catch (error) {
-      // Handle network errors
+     
       console.error("Network error", error);
     }
   }
