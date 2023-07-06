@@ -1,3 +1,11 @@
+# To do list client 
+
+Client built with React that makes a fetch request to a server developed with Moleculer microservices.
+
+
+### `npm install`
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
