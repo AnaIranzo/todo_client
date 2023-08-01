@@ -54,6 +54,8 @@ const Lists = (props) => {
       {props.lists.map((list) => (
         <div key={list.id} className="list_card">
           <h3>{list.listName}</h3>
+          <button>X</button>
+          <button>Edit</button>
           <form onSubmit={(event) => handleSubmit(event, list.id)}>
             <input type="text" name="taskName" />
             <input type="submit" value="+" />
@@ -61,7 +63,11 @@ const Lists = (props) => {
           {tasks
             .filter((task) => task.listId === list.id)
             .map((task) => (
+              <>
+              <button>X</button>
+              <button>Edit</button>
               <p key={task.id}>- {task.taskName}</p>
+              </>
             ))}
         </div>
       ))}
