@@ -53,9 +53,11 @@ const Lists = (props) => {
     <div className="lists_container">
       {props.lists.map((list) => (
         <div key={list.id} className="list_card">
+          <div className="list">
           <h3>{list.listName}</h3>
           <button>X</button>
           <button>Edit</button>
+          </div>
           <form onSubmit={(event) => handleSubmit(event, list.id)}>
             <input type="text" name="taskName" />
             <input type="submit" value="+" />
