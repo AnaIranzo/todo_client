@@ -16,6 +16,11 @@
 
 }
 
+.task{
+    display: flex;
+    gap: 5px;
+}
+
 
 @media screen and (min-width: 768px){
     .list_card{

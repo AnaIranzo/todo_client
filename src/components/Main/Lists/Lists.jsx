@@ -63,11 +63,12 @@ const Lists = (props) => {
           {tasks
             .filter((task) => task.listId === list.id)
             .map((task) => (
-              <>
+              <div className="task">
+              
+              <p key={task.id}>- {task.taskName}</p>
               <button>X</button>
               <button>Edit</button>
-              <p key={task.id}>- {task.taskName}</p>
-              </>
+              </div>
             ))}
         </div>
       ))}
