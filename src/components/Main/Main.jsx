@@ -54,6 +54,72 @@ const Main = () => {
     
   }
 
+
+  async function handleEditList(event) {
+    event.preventDefault();
+
+    const newList = event.target.listName.value;//EDIT
+
+    if (event.target.listName.value !== '') {//EDIT
+      try {
+        const response = await fetch("http://localhost:3000/list/:id", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ listName: newList }),//EDIT
+        });
+  
+        if (response.ok) {
+          console.log("List edited successfully!");
+          fetchData(); 
+          event.target.listName.value = ''
+        } else {
+          console.error("Failed to edit list");
+        }
+      } catch (error) {
+        console.error("Network error", error);
+      }
+    } else{
+      alert('Por favor escriba un nombre para la lista');
+    }
+
+    
+  }
+
+
+  async function handleDeleteList(event) {
+    event.preventDefault();
+
+    const newList = event.target.listName.value;//EDIT
+
+    if (event.target.listName.value !== '') {//EDIT
+      try {
+        const response = await fetch("http://localhost:3000/list/:id", {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ listName: newList }),//EDIT
+        });
+  
+        if (response.ok) {
+          console.log("List created successfully!");
+          fetchData(); 
+          event.target.listName.value = ''
+        } else {
+          console.error("Failed to create list");
+        }
+      } catch (error) {
+        console.error("Network error", error);
+      }
+    } else{
+      alert('Por favor escriba un nombre para la lista');
+    }
+
+    
+  }
+
   return (
     <main>
       <h2>Añadir nueva lista:</h2>
