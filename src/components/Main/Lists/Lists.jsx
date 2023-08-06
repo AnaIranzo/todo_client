@@ -77,6 +77,34 @@ const Lists = (props) => {
       console.error("Network error", error);
     }
   }
+
+  async function handleDelete(event, listId) {
+    event.preventDefault();
+
+    const newTask = event.target.taskName.value;//EDITAR
+    
+
+    try {
+      const response = await fetch("http://localhost:3000/task/:id", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ taskName: newTask, listId }),//EDITAR
+      });
+      if (response.ok) {
+      
+        console.log("Task deleted successfully!");
+        fetchData(); 
+      } else {
+        
+        console.error("Failed to delete task");
+      }
+    } catch (error) {
+    
+      console.error("Network error", error);
+    }
+  }
   return (
     <div className="lists_container">
       {props.lists.map((list) => (
