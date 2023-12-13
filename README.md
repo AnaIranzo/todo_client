@@ -2,7 +2,7 @@
 
 Client built with React that makes a fetch request to a server developed with Moleculer microservices.
 
-You can add a list and then continue adding tasks
+You can add a list and then continue adding tasks.
 
 
 ### `npm install`
